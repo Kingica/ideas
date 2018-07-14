@@ -1,7 +1,9 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
-  # GET /ideas
+
+  
+  # @comments = @idea.comments.all
   # GET /ideas.json
   def index
     @ideas = Idea.all
@@ -10,6 +12,8 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @comments = @idea.comments.all
+    @comment = @idea.comments.build
   end
 
   # GET /ideas/new
